@@ -18,12 +18,12 @@ def load_token():
     t = t.split("/")
     return t[randint(0,len(t))]
 
-@st.cache(suppress_st_warning=True)
+@st.cache(suppress_st_warning=False)
 def download_punkt():
     nltk.download("punkt")
 
 
-@st.cache(suppress_st_warning=True)
+@st.cache(suppress_st_warning=False)
 def load_data_from_json():
     # st.write("Loading data from json")
     with open("chabodoc/intents.json") as file:
@@ -31,7 +31,7 @@ def load_data_from_json():
     return data
 
 
-@st.cache(suppress_st_warning=True)
+@st.cache(suppress_st_warning=False)
 def prepare_data(STEMMER, data):
     # st.write("Prepare data")
     words = []  # Wörter, die der Chatbot erkennen können soll
