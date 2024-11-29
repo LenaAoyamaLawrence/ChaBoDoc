@@ -12,12 +12,12 @@ from nltk.stem.lancaster import LancasterStemmer
 from stopwords import worte
 
 
-@st.cache_resource#(suppress_st_warning=True)
+@st.cache_resource#(suppress_st_warning=False)
 def download_punkt():
     nltk.download("punkt")
 
 
-@st.cache_data#(suppress_st_warning=True)
+@st.cache_data#(suppress_st_warning=False)
 def load_data_from_json():
     # st.write("Loading data from json")
     with open("intents.json") as file:
@@ -25,7 +25,7 @@ def load_data_from_json():
     return data
 
 
-@st.cache_resource#(suppress_st_warning=True)
+@st.cache_resource#(suppress_st_warning=False)
 def prepare_data(_STEMMER, data):
     # st.write("Prepare data")
     words = []  # Wörter, die der Chatbot erkennen können soll
